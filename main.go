@@ -286,6 +286,15 @@ func Repair(randomWord string) string {
 	return wordRepair
 }
 
+func Compare(pfLetter string, pfTabB []byte, pfWord string, pfTabUnderscore []byte) []byte {
+	for i := 0; i < len(pfWord)-1; i++ {
+		if pfLetter == string(pfTabB[i]) {
+			pfTabUnderscore[i] = pfTabB[i]
+		}
+	}
+	return pfTabUnderscore
+}
+
 // Cette fonction sert à choisir un mot au hasard dans un tableau
 func RandomPick(pfTab []string) string {
 	rand.Seed(time.Now().UnixNano())
